@@ -9,6 +9,7 @@ Este es el backend oficial del proyecto **SmartRoute**, un motor en la nube dise
 * **Framework:** Django 6.0.3 (Python 3.12)
 * **Base de Datos:** PostgreSQL alojado en **Microsoft Azure**
 * **Contenedores:** Docker & Docker Desktop
+* **API REST:** Django REST Framework
 * **Variables de Entorno:** `python-dotenv`
 * **CORS (Preparación API):** `django-cors-headers`
 
@@ -23,10 +24,16 @@ Este es el backend oficial del proyecto **SmartRoute**, un motor en la nube dise
 4.  **Conexión a la Nube:** Transición desde la base de datos local SQLite (`db.sqlite3`) hacia un servidor **PostgreSQL en Azure**, asegurando la conexión mediante variables de entorno (`.env`).
 5.  **Persistencia y Administración:** Migraciones ejecutadas con éxito en la nube y creación del superusuario para gestionar los datos a través del panel de administración de Django (`/admin`).
 
-### Fase B: API REST (Próximos pasos)
-* Configuración de Django REST Framework.
-* Creación de Serializadores para el modelo `Route`.
-* Creación de Endpoints (ViewSets/Routers) para servir datos en formato JSON.
+### Fase B: API REST (Completada)
+1.  **Django REST Framework:** Instalación e integración del framework para habilitar capacidades de API.
+2.  **Serialización (`serializers.py`):** Creación de un `ModelSerializer` para traducir los objetos de PostgreSQL a formato estándar JSON.
+3.  **Controladores (`views.py`):** Implementación de un `ModelViewSet` para exponer automáticamente operaciones CRUD (Crear, Leer, Actualizar, Borrar).
+4.  **Enrutamiento (`urls.py`):** Configuración de un `DefaultRouter` para la generación dinámica y estructurada de los endpoints de la API.
+
+### Fase C: Lógica de Negocio y Conexión Frontend (Próximos pasos)
+* Configuración de CORS para permitir conexiones seguras desde el frontend (React).
+* Implementación de lógica interna (ej. cálculo de distancias reales entre coordenadas).
+* Filtros y búsquedas personalizadas en la API.
 
 ---
 
@@ -64,5 +71,6 @@ Dentro de la terminal del contenedor (root@...:/app#), ejecuta el servidor de de
 ```
 python manage.py runserver 0.0.0.0:8000
 ```
-
+### Accesos Directos
 El panel de administración estará disponible en: http://localhost:8000/admin
+API REST (Datos en formato JSON): http://localhost:8000/api/routes/
