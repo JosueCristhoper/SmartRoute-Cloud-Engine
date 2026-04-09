@@ -72,5 +72,5 @@ Dentro de la terminal del contenedor (root@...:/app#), ejecuta el servidor de de
 python manage.py runserver 0.0.0.0:8000
 ```
 ### Accesos Directos
-El panel de administración estará disponible en: http://localhost:8000/admin
-API REST (Datos en formato JSON): http://localhost:8000/api/routes/
+* El panel de administración estará disponible en: http://localhost:8000/admin
+* API REST (Datos en formato JSON): http://localhost:8000/api/routes/
