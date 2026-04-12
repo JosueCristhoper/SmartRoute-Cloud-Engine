@@ -12,6 +12,7 @@ Este es el backend oficial del proyecto **SmartRoute**, un motor en la nube dise
 * **API REST:** Django REST Framework
 * **Variables de Entorno:** `python-dotenv`
 * **CORS (Preparación API):** `django-cors-headers`
+* **SDK Cloud:** `azure-storage-queue` (Para mensajería asíncrona con Azure)
 
 ---
 
@@ -30,10 +31,10 @@ Este es el backend oficial del proyecto **SmartRoute**, un motor en la nube dise
 3.  **Controladores (`views.py`):** Implementación de un `ModelViewSet` para exponer automáticamente operaciones CRUD (Crear, Leer, Actualizar, Borrar).
 4.  **Enrutamiento (`urls.py`):** Configuración de un `DefaultRouter` para la generación dinámica y estructurada de los endpoints de la API.
 
-### Fase C: Lógica de Negocio y Conexión Frontend (Próximos pasos)
+### Fase C: Lógica de Negocio y Arquitectura Asíncrona (En Progreso)
+* **Lógica Matemática:** Implementación y validación de la fórmula de Haversine para calcular distancias exactas en kilómetros entre dos coordenadas geográficas.
+* **Desacoplamiento Cloud:** Configuración de **Azure Storage Queues** (Colas de Almacenamiento) para extraer el cálculo matemático de Django y procesarlo de forma asíncrona en la nube.
 * Configuración de CORS para permitir conexiones seguras desde el frontend (React).
-* Implementación de lógica interna (ej. cálculo de distancias reales entre coordenadas).
-* Filtros y búsquedas personalizadas en la API.
 
 ---
 
@@ -50,6 +51,7 @@ DB_USER=tu_usuario_de_azure
 DB_PASSWORD=tu_contraseña
 DB_HOST=tu_servidor.postgres.database.azure.com
 DB_PORT=5432
+AZURE_STORAGE_CONNECTION_STRING="cadena_de_conexion_de_la_cola_de_azure"
 ```
 ### 2. Construir la Imagen Docker
 Estando en la raíz del proyecto, ejecuta el siguiente comando para construir la imagen con todas las dependencias necesarias:
